@@ -6,12 +6,12 @@
   "heroTitle": "What is up?",
   "tagline": "Your daily source of what's going around.",
   "description": "3NDING is a place where you get information on what's going around. Browse the latest stories.",
-  "defaultAuthor": "3NDING Editorial",
+  "defaultAuthor": "omniswa",
   "defaultSection": "Stories",
   "defaultImage": "",
   "pageSize": 9,
   "footerLinks": [
-    { "label": "RSS", "href": "/feed.xml" },
+    { "label": "About", "href": "/pages/about.html" },
     { "label": "Sitemap", "href": "/sitemap.xml" }
   ]
 }
