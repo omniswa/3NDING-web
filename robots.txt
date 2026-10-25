@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /generator.html
+
+Sitemap: https://3nding.top/sitemap.xml

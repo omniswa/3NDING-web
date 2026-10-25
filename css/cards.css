@@ -1,0 +1,36 @@
+/* Post cards, used on the home page and under articles. */
+.feed { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)) }
+.card { position: relative; display: flex; flex-direction: column; height: 100%; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); transition: border-color .2s, box-shadow .2s }
+.card:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); box-shadow: var(--shadow) }
+.card .title a::after { content: ""; position: absolute; inset: 0 }
+.card:focus-within { outline: 2px solid var(--accent); outline-offset: 2px }
+.card .title a:focus-visible { outline: none }
+
+.thumb { margin: 0; aspect-ratio: 16/10; overflow: hidden; background: linear-gradient(135deg, var(--accent-soft), color-mix(in srgb, var(--accent-2) 22%, var(--surface))) }
+.thumb img { width: 100%; height: 100%; object-fit: cover; transition: scale .5s cubic-bezier(.2, .7, .2, 1) }
+.thumb.noimg img { display: none }
+@media (hover: hover) { .card:hover .thumb img { scale: 1.04 } }
+
+.card-body { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px 20px; min-width: 0 }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; color: var(--muted); font-size: .85rem }
+.title { margin: 0; font: 600 clamp(1.1rem, 2.6vw, 1.3rem)/1.3 var(--serif); letter-spacing: -.01em; text-wrap: balance; overflow-wrap: anywhere; transition: color .2s }
+.card:hover .title { color: var(--accent) }
+.desc { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden }
+
+/* Newest post gets the full row */
+.is-feature { grid-column: 1 / -1 }
+.is-feature .title { font-size: clamp(1.5rem, 4.4vw, 2.2rem); line-height: 1.2 }
+.is-feature .desc { font-size: 1.02rem }
+@media (min-width: 760px) {
+  .is-feature .card { flex-direction: row }
+  .is-feature .thumb { flex: 0 0 54%; aspect-ratio: auto; min-height: 320px }
+  .is-feature .card-body { justify-content: center; padding: clamp(24px, 4vw, 44px); gap: 12px }
+}
+
+/* Loading skeleton */
+.skel .thumb, .skel i { background: linear-gradient(100deg, var(--border) 30%, color-mix(in srgb, var(--border) 40%, var(--surface)) 50%, var(--border) 70%) 0 0/300% 100%; animation: sh 1.4s linear infinite }
+.skel i { display: block; height: 12px; border-radius: 6px }
+.skel i:nth-child(1) { width: 30% }
+.skel i:nth-child(2) { width: 90%; height: 18px }
+.skel i:nth-child(3) { width: 70% }
+@keyframes sh { to { background-position: -300% 0 } }
